@@ -1,0 +1,44 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ja:
+  breadcrumbs:
+    application:
+      root: "Index"
+    pages:
+      pages: "ページ"
+  helpers:
+    actions: "操作"
+    links:
+      back: "戻る"
+      cancel: "キャンセル"
+      confirm: "本当によろしいですか？"
+      destroy: "削除"
+      new: "追加"
+      edit: "修正"
+    titles:
+      edit: "%{model}を修正する"
+      save: "%{model}を保存する"
+      new: "%{model}を追加する"
+      delete: "%{model}を削除する"
+    submit: 
+      create: "%{model}を追加する"
+      update: "%{model}を更新する"
+  time:
+    formats:
+      default: '%Y年%m月%d日'
+  activerecord:
+    models:
+      member: 'メンバー'
+      room: '部屋'
+      department: '部会'
+      committee: '委員会'
+    attributes:
+      member:
+        name: '名前'
+        room_id: '部屋'
+        department_id: '部会'
+        committee_id: '委員会'
+        phone_number: '電話番号'
+        mail_address: 'メールアドレス'
+        is_absent: '休寮状況'

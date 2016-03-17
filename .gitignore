@@ -1,0 +1,12 @@
+.bundle
+bin
+vendor
+
+db/*.sqlite3
+db/*.sqlite3-journal
+
+log/*
+tmp/*
+
+.byebug_history
+*~
