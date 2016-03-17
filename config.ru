@@ -8,8 +8,8 @@ Rails.application.eager_load!
 # prefix付きのURLでアクセスされたときの対策
 if ENV['RAILS_RELATIVE_URL_ROOT']
   map ENV['RAILS_RELATIVE_URL_ROOT'] do
-    run Foo::Application
+    run Rails.application
   end
 else
-  run Foo::Application
+  run Rails.application
 end
