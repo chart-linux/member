@@ -5,4 +5,11 @@ require ::File.expand_path('../config/environment', __FILE__)
 # Action Cable requires that all classes are loaded in advance
 Rails.application.eager_load!
 
-run Rails.application
+# prefix付きのURLでアクセスされたときの対策
+if ENV['RAILS_RELATIVE_URL_ROOT']
+  map ENV['RAILS_RELATIVE_URL_ROOT'] do
+    run Foo::Application
+  end
+else
+  run Foo::Application
+end
