@@ -50,6 +50,30 @@
             <li>
               <%= link_to t('.new', :default => t("helpers.links.new")), new_member_path %>
             </li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">部屋 <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+              <% for room in @menu_rooms %>
+                <li><%= link_to room.name, { :controller => :members, :action => :index, :room_id => room.id } %><li>
+              <% end %>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">部会 <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+              <% for department in @menu_departments %>
+                <li><%= link_to department.name, { :controller => :members, :action => :index, :department_id => department.id } %></li>
+              <% end %>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">委員会 <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+              <% for committee in @menu_committees %>
+                <li><%= link_to committee.name, { :controller => :members, :action => :index, :committee_id => committee.id } %></li>
+              <% end %>
+							</ul>
+						</li>
           </ul>
         </div>
       </div>
@@ -63,12 +87,11 @@
 <!--
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
+            <h3>索引</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li class="nav-header">部会</li>
+              <li class="nav-header">委員会</li>
+              <li class="nav-header">部屋</li>
             </ul>
           </div>
         </div>
