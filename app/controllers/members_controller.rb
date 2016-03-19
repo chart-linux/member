@@ -84,7 +84,8 @@ class MembersController < ApplicationController
   	  	:department_id,
   	  	:committee_id,
   	  	:phone_number,
-  	  	:mail_address
+  	  	:mail_address,
+        :is_absent
   	  )
   end
 
