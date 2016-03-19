@@ -4,7 +4,7 @@ class MembersController < ApplicationController
   before_action :set_committee, only: [:index]
   before_action :build_member, only: [:create]
   before_action :set_member, only: [:edit, :destroy, :update]
-  before_action :set_form_properties, only: [:edit, :new]
+  before_action :set_form_properties, only: [:edit, :new, :create]
 
   def index
     group = [
