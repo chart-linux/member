@@ -4,4 +4,6 @@ class Member < ApplicationRecord
   belongs_to :department, optional: true
 
   validates :name, presence: true
+
+  default_scope { order :room_id, :department_id, :committee_id }
 end
