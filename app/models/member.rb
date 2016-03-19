@@ -1,5 +1,7 @@
 class Member < ApplicationRecord
-  belongs_to :room
-  belongs_to :committee
-  belongs_to :department
+  belongs_to :room, optional: true
+  belongs_to :committee, optional: true
+  belongs_to :department, optional: true
+
+  validates :name, presence: true
 end
