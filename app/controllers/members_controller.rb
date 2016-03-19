@@ -25,7 +25,7 @@ class MembersController < ApplicationController
   end
 
   def update
-    @member.update(create_member_params)
+    @member.update(properties_params)
     redirect_to action: :index
   end
 
@@ -44,11 +44,13 @@ class MembersController < ApplicationController
   private
 
   def set_member
-  	@member = Member.find(show_member_params[:id])
+  	@member = Member.find(id_params[:id])
   end
 
   def build_member
-  	@member = Member.new(create_member_params)
+  	@member = Member.new(properties_params)
+  end
+
   def set_room
     @room = Room.find_by(id: room_params[:room_id])
   end
@@ -67,11 +69,11 @@ class MembersController < ApplicationController
     @rooms = Room.all
   end
 
-  def show_member_params
+  def id_params
   	params.permit(:id)
   end
 
-  def create_member_params
+  def properties_params
   	params
       .require(:member)
   	  .permit(
