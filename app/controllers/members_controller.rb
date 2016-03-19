@@ -36,9 +36,9 @@ class MembersController < ApplicationController
   def create
   	if @member.save
   	  redirect_to action: :index
-  	else
-  		redirect_to action: :new
-  	end
+    else
+      render :new
+    end
   end
 
   private
