@@ -1,10 +1,19 @@
 class MembersController < ApplicationController
+  before_action :set_room, only: [:index]
+  before_action :set_department, only: [:index]
+  before_action :set_committee, only: [:index]
   before_action :build_member, only: [:create]
   before_action :set_member, only: [:edit, :destroy, :update]
   before_action :set_form_properties, only: [:edit, :new]
 
   def index
-    @members = Member.all.eager_load :department, :committee, :room
+    group = [
+      @room&.members,
+      @department&.members,
+      @committee&.members,
+      Member.all
+    ].find { |g| g.present? }
+    @members = group.eager_load :department, :committee, :room
   end
 
   def edit
@@ -40,6 +49,16 @@ class MembersController < ApplicationController
 
   def build_member
   	@member = Member.new(create_member_params)
+  def set_room
+    @room = Room.find_by(id: room_params[:room_id])
+  end
+
+  def set_department
+    @department = Department.find_by(id: department_params[:department_id])
+  end
+
+  def set_committee
+    @committee = Committee.find_by(id: committee_params[:committee_id])
   end
 
   def set_form_properties
@@ -63,5 +82,17 @@ class MembersController < ApplicationController
   	  	:phone_number,
   	  	:mail_address
   	  )
+  end
+
+  def room_params
+    params.permit(:room_id)
+  end
+
+  def department_params
+    params.permit(:department_id)
+  end
+
+  def committee_params
+    params.permit(:committee_id)
   end
 end

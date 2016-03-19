@@ -1,7 +1,9 @@
 <%- model_class = Member -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1>
+    <%= belongs_name %><%=t '.title', :default => model_class.model_name.human %>
     <%= link_to t('.new', :default => t("helpers.links.new")), new_member_path, class: 'btn btn-primary' %>
+  </h1>
 </div>
 <div style="text-align:right">
 </div>
