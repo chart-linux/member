@@ -43,6 +43,7 @@ class MembersController < ApplicationController
 
   private
 
+  # before_action
   def set_member
   	@member = Member.find(id_params[:id])
   end
@@ -69,6 +70,7 @@ class MembersController < ApplicationController
     @rooms = Room.all
   end
 
+  # strong parameters
   def id_params
   	params.permit(:id)
   end
