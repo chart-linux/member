@@ -1,5 +1,4 @@
 .bundle
-bin
 vendor
 
 db/*.sqlite3
