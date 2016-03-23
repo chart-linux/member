@@ -4,6 +4,7 @@ class MembersController < ApplicationController
   before_action :set_committee, only: [:index]
   before_action :build_member, only: [:create]
   before_action :set_member, only: [:edit, :destroy, :update]
+  before_action :build_face_image, only: [:create, :update]
   before_action :set_form_properties, only: [:edit, :new, :create]
 
   def index
@@ -25,8 +26,12 @@ class MembersController < ApplicationController
   end
 
   def update
-    @member.update(properties_params)
-    redirect_to action: :index
+    @member.attributes = properties_params.except(:face_image)
+    if @member.save && @face_image.save
+      redirect_to action: :index
+    else
+      redirect_to action: :edit
+    end
   end
 
   def new
@@ -34,7 +39,7 @@ class MembersController < ApplicationController
   end
 
   def create
-  	if @member.save
+  	if @member.save && @face_image.save
   	  redirect_to action: :index
     else
       render :new
@@ -49,7 +54,11 @@ class MembersController < ApplicationController
   end
 
   def build_member
-  	@member = Member.new(properties_params)
+  	@member = Member.new(properties_params.except(:face_image))
+  end
+
+  def build_face_image
+    @face_image = @member.build_face_image image: properties_params[:face_image]
   end
 
   def set_room
@@ -85,7 +94,8 @@ class MembersController < ApplicationController
   	  	:committee_id,
   	  	:phone_number,
   	  	:mail_address,
-        :is_absent
+        :is_absent,
+        :face_image
   	  )
   end
 
