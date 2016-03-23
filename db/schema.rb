@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317185514) do
+ActiveRecord::Schema.define(version: 20160323151017) do
 
   create_table "committees", force: :cascade do |t|
     t.text     "name"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20160317185514) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "face_images", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "member_id"
+  end
+
+  add_index "face_images", ["member_id"], name: "index_face_images_on_member_id"
 
   create_table "members", force: :cascade do |t|
     t.text     "name"
