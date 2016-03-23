@@ -9,3 +9,7 @@ tmp/*
 
 .byebug_history
 *~
+
+public/system/face_images/*
+
+*.swp
