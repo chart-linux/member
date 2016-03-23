@@ -15,7 +15,7 @@ ja:
       confirm: "本当によろしいですか？"
       destroy: "削除"
       new: "追加"
-      edit: "修正"
+      edit: "変更"
     titles:
       edit: "%{model}を修正する"
       save: "%{model}を保存する"
