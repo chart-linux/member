@@ -30,7 +30,7 @@ class MembersController < ApplicationController
     if @member.save && @face_image.save
       redirect_to action: :index
     else
-      redirect_to action: :edit
+      render :edit
     end
   end
 
