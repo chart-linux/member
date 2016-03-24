@@ -2,7 +2,7 @@ class Member < ApplicationRecord
   belongs_to :room, optional: true
   belongs_to :committee, optional: true
   belongs_to :department, optional: true
-  has_one :face_image
+  has_one :face_image, dependent: :destroy
 
   validates :name, presence: true
 
