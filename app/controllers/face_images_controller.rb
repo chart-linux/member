@@ -3,7 +3,7 @@ class FaceImagesController < ApplicationController
 
   def destroy
     @face_image.destroy
-    redirect_to controller: :members, action: :index
+    redirect_to controller: :members, action: :edit, id: @face_image.member.id
   end
 
   def edit
