@@ -19,8 +19,8 @@
     <div>
       <label class='control-label col-lg-2' for='face_image'>写真</label>
       <div class='col-lg-10'>
-        <%= image_tag @member.face_image.image.url(:medium), id: 'face_image' %><br />
-        <%= link_to '写真を変更する', { :controller => :face_images, :action => :edit, id: @member.face_image.id }, { :class => 'btn btn-success', :style => 'margin-bottom: 10px' } %>
+        <%= image_tag @member.face_image.image.url(:medium), id: 'face_image', style: 'margin-bottom: 5px' %><br />
+        <%= link_to '写真を変更する', { :controller => :face_images, :action => :edit, id: @member.face_image.id }, { :class => 'btn btn-success' } %>
       </div>
     </div>
   <% else %>
