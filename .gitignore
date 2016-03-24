@@ -14,3 +14,4 @@ public/system/face_images/*
 
 *.swp
 .password
+config/secrets.yml
