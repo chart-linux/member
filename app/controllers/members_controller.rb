@@ -27,7 +27,7 @@ class MembersController < ApplicationController
 
   def update
     @member.attributes = properties_params.except(:face_image)
-    if @member.save && @face_image.save
+    if @member.save
       redirect_to action: :index
     else
       render :edit
@@ -39,7 +39,7 @@ class MembersController < ApplicationController
   end
 
   def create
-  	if @member.save && @face_image.save
+  	if @member.save
   	  redirect_to action: :index
     else
       render :new
@@ -58,7 +58,8 @@ class MembersController < ApplicationController
   end
 
   def build_face_image
-    @face_image = @member.build_face_image image: properties_params[:face_image]
+    fm = properties_params[:face_image]
+    @face_image = @member.build_face_image(image: fm) if fm.present?
   end
 
   def set_room
