@@ -17,6 +17,11 @@ class MembersController < ApplicationController
     @members = group.eager_load :department, :committee, :room
   end
 
+  def unconfirmed
+    @members = Member.where(sent_confirmed: false)
+    render template: 'members/index'
+  end
+
   def edit
   end
 
@@ -96,6 +101,7 @@ class MembersController < ApplicationController
   	  	:phone_number,
   	  	:mail_address,
         :is_absent,
+        :sent_confirmed,
         :face_image
   	  )
   end

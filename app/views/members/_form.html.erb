@@ -87,6 +87,14 @@
     </div>
     <%=f.error_span(:is_absent) %>
   </div>
+  <div class="form-group">
+    <%= f.label :sent_confirmed, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <label><%= f.radio_button :sent_confirmed, true, :class => 'form-control' %>確認済</label>
+      <label><%= f.radio_button :sent_confirmed, false, :class => 'form-control' %>未確認</label>
+    </div>
+    <%=f.error_span(:is_absent) %>
+  </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">

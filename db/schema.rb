@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323151017) do
+ActiveRecord::Schema.define(version: 20160330165057) do
 
   create_table "committees", force: :cascade do |t|
     t.text     "name"
@@ -44,9 +44,10 @@ ActiveRecord::Schema.define(version: 20160323151017) do
     t.integer  "committee_id"
     t.text     "phone_number"
     t.text     "mail_address"
-    t.boolean  "is_absent",     default: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.boolean  "is_absent",      default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "sent_confirmed", default: false, null: false
   end
 
   create_table "rooms", force: :cascade do |t|
