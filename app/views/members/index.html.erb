@@ -3,6 +3,7 @@
   <h1>
     <%= belongs_name %><%=t '.title', :default => model_class.model_name.human %>
     <%= link_to t('.new', :default => t("helpers.links.new")), new_member_path, class: 'btn btn-primary' %>
+    <%= link_to "メーリスが届いてない人達", { action: 'unconfirmed' }, { class: 'btn btn-danger' } %>
   </h1>
 </div>
 <div style="text-align:right">
