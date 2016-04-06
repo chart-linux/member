@@ -32,6 +32,7 @@ class MembersController < ApplicationController
 
   def update
     @member.attributes = properties_params.except(:face_image)
+    @member.mail_address = '' unless properties_params.key?(:mail_address)
     if @member.save
       redirect_to action: :index
     else
