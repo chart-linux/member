@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :members do
     collection do
       get 'unconfirmed'
+      get 'confirmation'
     end
   end
   resources :face_images

@@ -51,6 +51,15 @@ class MembersController < ApplicationController
     end
   end
 
+  def confirmation
+    timestamp = Time.zone.strptime('%Y-%m-%d')
+
+    ConfirmationMailer.send_mailing_list(timestamp).deliver
+    Member.where(sent_confirmed: false).each do |member|
+      ConfirmationMailer.confirm(member, timestamp).deliver if member.mail_address != ''
+    end
+  end
+
   private
 
   # before_action

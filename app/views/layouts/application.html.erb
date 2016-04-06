@@ -72,6 +72,13 @@
 							</ul>
 						</li>
           </ul>
+          <div class='navbar-right navbar-text'>
+            <%=
+              link_to "メーリスが届いてない人に勧告メールを送る",
+                      { controller: 'members', action: 'confirmation' },
+                      { data: { confirm: t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } }
+            %>
+          </div>
         </div>
       </div>
     </div>
