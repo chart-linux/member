@@ -53,12 +53,14 @@ class MembersController < ApplicationController
   end
 
   def confirmation
-    timestamp = Time.zone.strptime('%Y-%m-%d')
+    timestamp = Time.zone.today.strftime('%Y-%m-%d')
 
     ConfirmationMailer.send_mailing_list(timestamp).deliver
     Member.where(sent_confirmed: false).each do |member|
       ConfirmationMailer.confirm(member, timestamp).deliver if member.mail_address != ''
     end
+
+    redirect_to action: :index
   end
 
   private
