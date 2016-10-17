@@ -14,7 +14,7 @@ class MembersController < ApplicationController
       @committee&.members,
       Member.all
     ].find { |g| g.present? }
-    @members = group.eager_load :department, :committee, :room
+    @members = group.eager_load :department, :committee, :room, :face_image
   end
 
   def unconfirmed
