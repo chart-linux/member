@@ -11,6 +11,7 @@ tmp/*
 *~
 
 public/system/face_images/*
+public/assets
 
 *.swp
 .password
