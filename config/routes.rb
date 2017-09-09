@@ -9,5 +9,4 @@ Rails.application.routes.draw do
       get 'confirmation'
     end
   end
-  resources :face_images
 end

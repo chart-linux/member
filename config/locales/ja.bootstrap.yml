@@ -33,7 +33,6 @@ ja:
       room: '部屋'
       department: '部会'
       committee: '委員会'
-      face_image: '写真'
     attributes:
       member:
         name: '名前'
@@ -43,6 +42,3 @@ ja:
         phone_number: '電話番号'
         mail_address: 'メールアドレス'
         is_absent: '休寮状況'
-        face_image: '写真'
-      face_image:
-        image: '写真'

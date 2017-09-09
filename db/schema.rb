@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330165057) do
+ActiveRecord::Schema.define(version: 20170909061942) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "committees", force: :cascade do |t|
     t.text     "name"
@@ -24,18 +26,6 @@ ActiveRecord::Schema.define(version: 20160330165057) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "face_images", force: :cascade do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.integer  "member_id"
-  end
-
-  add_index "face_images", ["member_id"], name: "index_face_images_on_member_id"
 
   create_table "members", force: :cascade do |t|
     t.text     "name"

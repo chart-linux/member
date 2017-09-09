@@ -11,7 +11,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:room_id) %></th>
       <th><%= model_class.human_attribute_name(:department_id) %></th>
@@ -24,7 +23,6 @@
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><% if member.face_image.present? %><%= image_tag member.face_image.image.url(:thumb), style: 'height: 100px' %><% end %></td>
         <td><b><%= member.name %></b></td>
         <td><%= member.room&.name %></td>
         <td><%= member.department&.name %></td>

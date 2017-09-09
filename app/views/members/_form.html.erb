@@ -14,29 +14,6 @@
       </div>
     </div>
   <% end %>
-
-  <% if @member.face_image.present? %>
-    <div>
-      <label class='control-label col-lg-2' for='face_image'>写真</label>
-      <div class='col-lg-10'>
-        <%= image_tag @member.face_image.image.url(:medium), id: 'face_image', style: 'margin-bottom: 5px' %><br />
-        <%= link_to '写真を変更する', { :controller => :face_images, :action => :edit, id: @member.face_image.id }, { :class => 'btn btn-success' } %>
-        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                    { :controller => :face_images, :action => :destroy, id: @member.face_image.id },
-                    :method => :delete,
-                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                    :class => 'btn btn-danger' %>
-      </div>
-    </div>
-  <% else %>
-    <div class="form-group">
-      <%= f.label :face_image, :class => 'control-label col-lg-2' %>
-      <div class="col-lg-10">
-        <%= f.file_field :face_image, :class => 'form-control' %>
-      </div>
-      <%=f.error_span(:face_image) %>
-    </div>
-  <% end %>
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">

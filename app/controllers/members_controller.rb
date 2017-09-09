@@ -4,7 +4,6 @@ class MembersController < ApplicationController
   before_action :set_committee, only: [:index]
   before_action :build_member, only: [:create]
   before_action :set_member, only: [:edit, :destroy, :update]
-  before_action :build_face_image, only: [:create, :update]
   before_action :set_form_properties, only: [:edit, :new, :create]
 
   def index
@@ -14,7 +13,7 @@ class MembersController < ApplicationController
       @committee&.members,
       Member.all
     ].find { |g| g.present? }
-    @members = group.eager_load :department, :committee, :room, :face_image
+    @members = group.eager_load :department, :committee, :room
   end
 
   def unconfirmed
@@ -31,7 +30,7 @@ class MembersController < ApplicationController
   end
 
   def update
-    @member.attributes = properties_params.except(:face_image)
+    @member.attributes = properties_params
     @member.mail_address = '' unless properties_params.key?(:mail_address)
     if @member.save
       redirect_to action: :index
@@ -71,12 +70,7 @@ class MembersController < ApplicationController
   end
 
   def build_member
-  	@member = Member.new(properties_params.except(:face_image))
-  end
-
-  def build_face_image
-    fm = properties_params[:face_image]
-    @face_image = @member.build_face_image(image: fm) if fm.present?
+  	@member = Member.new(properties_params)
   end
 
   def set_room
@@ -114,7 +108,6 @@ class MembersController < ApplicationController
   	  	:mail_address,
         :is_absent,
         :sent_confirmed,
-        :face_image
   	  )
   end
 
