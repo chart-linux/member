@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.secret_key_base = 'a1fec1e9c3b6937c4ccc87db14e62aa2d01962203e327cb11b99200310f51af8f69eb95d40e78003cba894fcc88d8106bc71bd33411e25697f96df9265353f8c'
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
