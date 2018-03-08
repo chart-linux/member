@@ -2,7 +2,7 @@ class ConfirmationMailer < ApplicationMailer
   default from: Rails.application.secrets.mailing_list_admin_address
 
   def send_mailing_list(timestamp)
-    mail to: Rails.application.secrets.mailing_list_address, subject: "B12メーリングリスト 送信テスト #{timestamp}"
+    mail to: ENV['MAILING_LIST_ADDRESS'], subject: "B12メーリングリスト 送信テスト #{timestamp}"
   end
 
   def confirm(member, timestamp)

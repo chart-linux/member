@@ -65,11 +65,11 @@ Rails.application.configure do
 	# さくらのメールボックスの設定
 	config.action_mailer.delivery_method = :smtp
 	config.action_mailer.smtp_settings = {
-		address:               Rails.application.secrets.mailer_address,
+		address:               ENV['SAKURA_ADDRESS'], # Rails.application.secrets.mailer_address,
 		port:      	           587,
-		domain:                Rails.application.secrets.mailer_domain,
-		user_name:             Rails.application.secrets.mailing_list_admin_address,
-		password:              Rails.application.secrets.mailing_list_admin_password,
+		domain:                ENV['SAKURA_DOMAIN'], #Rails.application.secrets.mailer_domain,
+		user_name:             ENV['SAKURA_USER_NAME'], #Rails.application.secrets.mailing_list_admin_address,
+		password:              ENV['SAKURA_PASSWORD'],#Rails.application.secrets.mailing_list_admin_password,
 		authentication:        'plain',
 		enable_starttls_auto:  true
 	} 
